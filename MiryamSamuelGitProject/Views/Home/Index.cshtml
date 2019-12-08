@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<div ng-app="myApp">
+    <div ng-init="init" id="content" ng-controller="indexController" class="row">
+
+
+        <div>
+
+
+          
+            <input type="text" ng-model="textSearch" placeholder="Type your search here ..."  ng-keydown="$event.keyCode === 13 && findRepositories()"/>
+            <div>
+                <button type="button" ng-click="findRepositories()">Get results</button>
+            </div>
+
+            <hr />
+            <ul>
+                <div class="row" ng-repeat="item in repositories">
+                         <hr />
+                        <div class="col-md-3">{{item.name}}</div>
+                        <div class="col-md-3">{{item.owner.login}}</div>
+                        <div class="col-md-3">
+                            <a ng-click="bookmarkRepository(item)">
+                                bookmark this
+                            </a>
+                        </div>
+          
+                </div>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Bookmarked Repositories", "BookmarkedRepositoriesView", "Home")</li>
+        </ul>
+    </div>
+</div>
+</html>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/Home.js"></script>

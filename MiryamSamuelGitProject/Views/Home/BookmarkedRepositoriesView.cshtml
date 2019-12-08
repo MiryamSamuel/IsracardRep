@@ -1,0 +1,36 @@
+﻿
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+
+<div ng-app="myApp" ng-controller="bookmarkedRepositoryController">
+
+
+
+
+    <h1>Bookmarked Repositories:</h1>
+
+
+    <hr />
+    <ul>
+        <li ng-repeat="item in bookmarkedRepositories">
+          
+                <div>{{item.Name}}</div>
+           
+
+        </li>
+    </ul>
+
+
+
+</div>
+
+</html>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/BookmarkedRepositories.js"></script>
+
+
+
